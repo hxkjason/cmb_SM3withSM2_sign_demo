@@ -8,14 +8,14 @@
  | 非对称签名认证-带body摘要  | 是 |SM3withSM2 | 非对称 |是|是|
 
 ### 替换配置信息
-将文件 [__cmb_openapi_service/const_var_struct.go__](https://github.com/hxkjason/cmb_SM3withSM2_sign_demo/blob/main/cmb_openapi_service/const_var_struct.go#L11-L13){:target="_blank"} 中的 AppId、AppSecret、PrivateKey 替换为您在招行 Open API 中创建应用的真实信息。
+将文件 [__cmb_openapi_service/const_var_struct.go__](https://github.com/hxkjason/cmb_SM3withSM2_sign_demo/blob/main/cmb_openapi_service/const_var_struct.go#L11-L13) 中的 AppId、AppSecret、PrivateKey 替换为您在招行 Open API 中创建应用的真实信息。
 
 ### 依赖第三方包 **gmsm** v1.4.1
 
-[__https://github.com/tjfoc/gmsm__](https://github.com/tjfoc/gmsm){:target="_blank"}
+[__https://github.com/tjfoc/gmsm__](https://github.com/tjfoc/gmsm)
 
 ### SM3withSM2 签名代码
 
-[__gmsm_service/gmsm_service.go__](https://github.com/hxkjason/cmb_SM3withSM2_sign_demo/blob/main/gmsm_service/gmsm_service.go#L18-L50){:target="_blank"}
+[__gmsm_service/gmsm_service.go__](https://github.com/hxkjason/cmb_SM3withSM2_sign_demo/blob/main/gmsm_service/gmsm_service.go#L18-L50)
 
 
