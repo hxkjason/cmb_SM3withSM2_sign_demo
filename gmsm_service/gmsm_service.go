@@ -14,7 +14,6 @@ var (
 	defaultUid = []byte{0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38}
 )
 
-
 // SM3WithSM2Sign SM3WithSM2签名 Hex ToUpper
 func SM3WithSM2Sign(privateKey *sm2.PrivateKey, forSignStr string, uid []byte) (string, error) {
 
@@ -28,18 +27,11 @@ func SM3WithSM2Sign(privateKey *sm2.PrivateKey, forSignStr string, uid []byte) (
 	}
 
 	rBytes, sBytes := r.Bytes(), s.Bytes()
-	rLen, sLen := len(rBytes), len(sBytes)
-	regularSize := 32
-
-	if rLen < regularSize {
-		for i := 0; i < regularSize-rLen; i++ {
-			rBytes = append(rBytes, 0)
-		}
+	if rLen := len(rBytes); rLen < 32 {
+		rBytes = append(make([]byte, 32-rLen), rBytes...)
 	}
-	if sLen < regularSize {
-		for i := 0; i < regularSize-sLen; i++ {
-			sBytes = append(sBytes, 0)
-		}
+	if sLen := len(sBytes); sLen < 32 {
+		sBytes = append(make([]byte, 32-sLen), sBytes...)
 	}
 
 	var buffer bytes.Buffer
